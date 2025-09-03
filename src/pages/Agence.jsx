@@ -5,9 +5,12 @@ import { ScrollTrigger } from "gsap/ScrollTrigger";
 
 
 const Agence = () => {
+
   gsap.registerPlugin(ScrollTrigger);
+
   const imageDivRef = useRef(null);
   const imageRef = useRef(null);
+
   const imageArray = [
     'https://k72.ca/uploads/teamMembers/Carl_480x640-480x640.jpg',
     'https://k72.ca/uploads/teamMembers/Olivier_480x640-480x640.jpg',
@@ -29,11 +32,16 @@ const Agence = () => {
     gsap.to(imageDivRef.current, {
       scrollTrigger: {
         trigger: imageDivRef.current,
-        markers: true,
-        start: 'top 28%',
-        end: 'top -100%',
+        //markers: true,
+        start: 'top -0',
+        end: 'top -150%',
+        pinSpacing: true,
+        pinReparent:true,
+        pinType: 'transform',
         pin: true,
-        scrub: true,
+        scrub: 1,
+        anticipatePin:1,
+        invalidateOnRefresh:true,
         onUpdate: (elem)=>{
           let imageIndex;
           if(elem.progress < 1){
@@ -50,8 +58,8 @@ const Agence = () => {
 
   return (
     <div>
-      <div className='section1'>
-        <div ref={imageDivRef} className='absolute overflow-hidden rounded-3xl h-[20vw] w-[15vw] top-50 left-[30vw]'>
+      <div className='section1 relative py-1'>
+        <div ref={imageDivRef} className='absolute overflow-hidden rounded-3xl h-[20vw] w-[15vw] top-[10vw] left-[30vw]'>
           <img ref={imageRef} className='h-full w-full object-cover' src='https://k72.ca/uploads/teamMembers/Carl_480x640-480x640.jpg'></img>
         </div>
         <div className='relative font-[font2]'>
