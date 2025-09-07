@@ -10,7 +10,7 @@ import FullScreenNav from './components/Naviagtion/FullScreenNav'
 const App = () => {
   return (
     <div>
-      <Navbar />
+      {/* <Navbar /> */}
       <FullScreenNav/>
       {/* <Routes>
         <Route path='/' element={<Home />} />
